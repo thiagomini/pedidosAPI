@@ -1,6 +1,6 @@
 package ufes.com.br.SimpleAPI.model;
 
-public class AbstractModel implements Comparable {
+public abstract class AbstractModel implements Comparable {
     protected int id;
 
     @Override
