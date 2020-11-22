@@ -2,7 +2,7 @@ language: java
 jdk:
   - oraclejdk11
 before_script:
-  - chmod +x mavenw
+  - chmod +x mvnw
 script:
   - mvn test
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
