@@ -1,7 +1,7 @@
 package ufes.com.br.SimpleAPI.model;
 
 public abstract class AbstractModel implements Comparable {
-    protected int id;
+    protected long id;
 
     @Override
     public boolean equals(Object obj) {
@@ -16,6 +16,10 @@ public abstract class AbstractModel implements Comparable {
 
     public long getId() {
         return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override
