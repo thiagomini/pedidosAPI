@@ -8,7 +8,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ProdutoFactory {
     private static final AtomicLong counter = new AtomicLong();
 
-    @org.jetbrains.annotations.NotNull
     public static Produto createProduto(String nome, String tipoUnidade, double preco, double estoque, String descricao) {
         Produto novoProduto = new Produto(counter.incrementAndGet(), nome, tipoUnidade, preco, estoque, descricao);
         ProdutoCollection.addProduto(novoProduto);
