@@ -26,6 +26,10 @@ public class Produto extends AbstractModel {
         this.descricao = descricao;
     }
 
+    public Produto(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
