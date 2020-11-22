@@ -1,4 +1,4 @@
-package ufes.com.br.SimpleAPI;
+package ufes.com.br.SimpleAPI.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

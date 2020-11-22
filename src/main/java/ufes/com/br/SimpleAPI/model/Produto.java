@@ -38,6 +38,10 @@ public class Produto extends AbstractModel {
         this.id = id;
     }
 
+    public void retirarDoEstoque(double quantidade) {
+        this.estoque -= quantidade;
+    }
+
     public String getTipoUnidade() {
         return tipoUnidade;
     }
@@ -68,6 +72,10 @@ public class Produto extends AbstractModel {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public boolean estoqueDisponivel(double quantidade) {
+        return this.estoque >= quantidade;
     }
 
 }
