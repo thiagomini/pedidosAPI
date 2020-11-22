@@ -24,4 +24,8 @@ public class ProdutoCollection {
                 .findFirst();
     }
 
+    public static void deleteProduto(Produto produto) {
+        PRODUTOS.remove(produto);
+    }
+
 }

@@ -33,10 +33,38 @@ public class ProdutoController {
     @GetMapping("/produtos/{id}")
     public Produto getProduto(@PathVariable long id) {
         Optional<Produto> produtoOptional = ProdutoCollection.getProduto(id);
-        if (!produtoOptional.isPresent()) {
+        if (produtoOptional.isEmpty()) {
             throw new ResourceNotFoundException("Produto não encontrado!");
         }
 
         return produtoOptional.get();
+    }
+
+    @PutMapping("/produtos/{id}")
+    public Produto updateProduto(@PathVariable long id, @RequestBody(required = true) ProdutoCreateDTO createDTO) {
+        Optional<Produto> produtoOptional = ProdutoCollection.getProduto(id);
+        if (produtoOptional.isEmpty()) {
+            throw new ResourceNotFoundException("Produto não encontrado!");
+        }
+        Produto produto = produtoOptional.get();
+
+        produto.setNome(createDTO.getNome());
+        produto.setDescricao(createDTO.getDescricao());
+        produto.setTipoUnidade(createDTO.getTipoUnidade());
+        produto.setEstoque(createDTO.getEstoque());
+        produto.setPreco(createDTO.getPreco());
+
+        return produto;
+    }
+
+    @DeleteMapping("/produtos/{id}")
+    public Produto deleteProduto(@PathVariable long id) {
+        Optional<Produto> produtoOptional = ProdutoCollection.getProduto(id);
+        if (produtoOptional.isEmpty()) {
+            throw new ResourceNotFoundException("Produto não encontrado!");
+        }
+        Produto produto = produtoOptional.get();
+        ProdutoCollection.deleteProduto(produto);
+        return produto;
     }
 }
