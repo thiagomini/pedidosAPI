@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: automatic merge for master when CI passes and 1 reviews
+    conditions:
+      - "#approved-reviews-by>=1"
+      - check-success=Java CI with Maven
+      - base=main
+    actions:
+      merge:
+        method: merge
