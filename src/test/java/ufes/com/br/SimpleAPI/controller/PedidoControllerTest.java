@@ -8,14 +8,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import ufes.com.br.SimpleAPI.collection.ProdutoCollection;
 import ufes.com.br.SimpleAPI.factory.ProdutoFactory;
 import ufes.com.br.SimpleAPI.model.Produto;
 
@@ -25,6 +24,11 @@ public class PedidoControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+
+    @BeforeAll
+    static void limparListaProdutos() {
+        ProdutoCollection.getProdutos().clear();
+    }
 
     @BeforeEach
     public void setup() {
