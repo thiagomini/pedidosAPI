@@ -57,7 +57,7 @@ public class PedidoControllerTest {
         Produto novoProduto = ProdutoFactory.createProduto("Leite","LT", 3.49, 10, "Leite");
         this.mockMvc.perform(post("/pedidos")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("[{\"idProduto\": 1, \"quantidade\": 5}]"))
+                .content("[{\"idProduto\": "+novoProduto.getId()+", \"quantidade\": 5}]"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
